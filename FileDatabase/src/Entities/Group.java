@@ -2,14 +2,16 @@ package Entities;
 
 import java.io.Serializable;
 
-public class AcademyGroup implements Serializable {
+public class Group implements Serializable {
     private int id;
     private String name;
+    private int academyId;
     private transient int averageAge; // we don't want to store it in the file
 
-    public AcademyGroup(int id, String name) {
+    public Group(int id, String name, int academyId) {
         this.id = id;
         this.name = name;
+        this.academyId = academyId;
     }
 
     public String getName() {
@@ -34,5 +36,13 @@ public class AcademyGroup implements Serializable {
 
     public void setAverageAge(int averageAge) {
         this.averageAge = averageAge;
+    }
+
+    public int getAcademyId() {
+        return academyId;
+    }
+
+    public void setAcademyId(int academyId) {
+        this.academyId = academyId;
     }
 }
