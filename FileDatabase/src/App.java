@@ -4,8 +4,8 @@ import Entities.Mentor;
 import Repository.AcademyRepository;
 import Repository.DbContext;
 import Repository.GroupRepository;
-import Repository.MentorRepository;
 import Repository.IRepository;
+import Repository.MentorRepository;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -19,8 +19,9 @@ public class App {
         groupRepository.Add(new Group(1, "Group 2026", 0));
         mentorRepository.Add(new Mentor(0, "Shabdan", 0));
 
-        for(Group group: groupRepository.GetAll()){
-            System.out.println(group.getId() + ", " + group.getName());
-        }
+        // select name from Groups where academyId = 0
+        for (var group : ((GroupRepository)groupRepository).GetByAcademyId(0)) {
+            System.out.println(group.getName());
+        }        
     }
 }
